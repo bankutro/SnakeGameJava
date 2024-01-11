@@ -34,41 +34,44 @@ public class GUI extends JFrame implements KeyListener {
     public void keyReleased(KeyEvent e) {}
 
     public void keyTyped(KeyEvent e) {}
-
+    @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-
-        if (key == KeyEvent.VK_LEFT) {
-            if (panel.snake1.currentDirection != 1)
-                panel.snake1.setDirection(-1);
+        switch (key) {
+            case KeyEvent.VK_LEFT -> {
+                if (panel.snake1.currentDirection != 1)
+                    panel.snake1.setDirection(-1);
+            }
+            case KeyEvent.VK_RIGHT -> {
+                if (panel.snake1.currentDirection != -1)
+                    panel.snake1.setDirection(1);
+            }
+            case KeyEvent.VK_UP -> {
+                if (panel.snake1.currentDirection != 2)
+                    panel.snake1.setDirection(-2);
+            }
+            case KeyEvent.VK_DOWN -> {
+                if (panel.snake1.currentDirection != -2)
+                    panel.snake1.setDirection(2);
+            }
         }
-        if (key == KeyEvent.VK_RIGHT) {
-            if (panel.snake1.currentDirection != -1)
-                panel.snake1.setDirection(1);
-        }
-        if (key == KeyEvent.VK_UP) {
-            if (panel.snake1.currentDirection != 2)
-                panel.snake1.setDirection(-2);
-        }
-        if (key == KeyEvent.VK_DOWN) {
-            if (panel.snake1.currentDirection != -2)
-                panel.snake1.setDirection(2);
-        }
-        if (key == KeyEvent.VK_A) {
-            if (panel.snake2.currentDirection != 1)
-                panel.snake2.setDirection(-1);
-        }
-        if (key == KeyEvent.VK_D) {
-            if (panel.snake2.currentDirection != -1)
-                panel.snake2.setDirection(1);
-        }
-        if (key == KeyEvent.VK_W) {
-            if (panel.snake2.currentDirection != 2)
-                panel.snake2.setDirection(-2);
-        }
-        if (key == KeyEvent.VK_S) {
-            if (panel.snake2.currentDirection != -2)
-                panel.snake2.setDirection(2);
+        switch (key) {
+            case KeyEvent.VK_A -> {
+                if (panel.snake2.currentDirection != 1)
+                    panel.snake2.setDirection(-1);
+            }
+            case KeyEvent.VK_D -> {
+                if (panel.snake2.currentDirection != -1)
+                    panel.snake2.setDirection(1);
+            }
+            case KeyEvent.VK_W -> {
+                if (panel.snake2.currentDirection != 2)
+                    panel.snake2.setDirection(-2);
+            }
+            case KeyEvent.VK_S -> {
+                if (panel.snake2.currentDirection != -2)
+                    panel.snake2.setDirection(2);
+            }
         }
     }
 }

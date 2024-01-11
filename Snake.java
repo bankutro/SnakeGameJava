@@ -28,14 +28,10 @@ public class Snake {
 
     public void moveHead(){
         switch (movementDirection) {
-            case 1 ->
-                    coordinates[0][0] += 20;
-            case -1 ->
-                    coordinates[0][0] -= 20;
-            case 2 ->
-                    coordinates[0][1] += 20;
-            case -2 ->
-                    coordinates[0][1] -= 20;
+            case 1 -> coordinates[0][0] += 20;
+            case -1 -> coordinates[0][0] -= 20;
+            case 2 -> coordinates[0][1] += 20;
+            case -2 -> coordinates[0][1] -= 20;
         }
         if (coordinates[0][0] > 499)
             coordinates[0][0] = 0;
@@ -52,7 +48,7 @@ public class Snake {
     }
 
     public void checkIfFoodEaten(){
-        if (Food.coordinates[0] == coordinates[0][0] && Food.coordinates[1] == coordinates[0][1]){
+        if (Food.coordinates[0] == coordinates[0][0] && Food.coordinates[1] == coordinates[0][1]) {
             Food.gameSpeed = Food.gameSpeed > 50 ? Food.gameSpeed - 10: Food.gameSpeed;
             score += 100;
             int[][] newSnakeLength = new int[coordinates.length + 1][2];
@@ -67,14 +63,14 @@ public class Snake {
         }
     }
 
-    public void checkIfGameOver(int bodyCoordinateX, int bodyCoordinateY){
+    public void checkIfGameOver(int bodyCoordinateX, int bodyCoordinateY) {
         if (bodyCoordinateX == coordinates[0][0] && bodyCoordinateY == coordinates[0][1]) {
             JOptionPane.showMessageDialog(null, snakeName + " lost!");
             System.exit(0);
         }
     }
 
-    public boolean checkIfCollision(int[][] otherSnakeCoordinates){
+    public boolean checkIfCollision(int[][] otherSnakeCoordinates) {
         for (int[] otherSnakeCoordinate : otherSnakeCoordinates){
             if (otherSnakeCoordinate[0] == coordinates[0][0] && otherSnakeCoordinate[1] == coordinates[0][1]){
                 return true;
